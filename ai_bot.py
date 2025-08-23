@@ -197,9 +197,4 @@ Ensure the final output is well-formatted using Markdown, including lists and bo
         return "I'm sorry, I'm unable to generate a research plan at this time."
 
 
-if __name__ == "__main__":
-    response = get_response("who is the rector", [{"user": "who is the rector", 'bot' : ""}], "AIzaSyAMQJd9248W4eB_uw8p7BNLC3wq73RINp8")
-    print(response)
-    
-
     
