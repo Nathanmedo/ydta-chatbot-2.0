@@ -1,0 +1,96 @@
+<!-- templates/about.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>About Yabatech FAQ Bot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Yabatech SmartBot</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="{{ url_for('chatbot') }}" class="nav-button">Get Started</a>
+    </header>
+
+    <main class="about-container">
+        <section class="about-hero">
+            <div class="hero-image-wrapper">
+                <img src="https://placehold.co/450x450/4CAF50/ffffff?text=Yabatech+Chatbot+Hero+Image" alt="Yabatech FAQ Bot" class="about-hero-image">
+            </div>
+            <div class="hero-text-content">
+                <h1>Your Yabatech Guide</h1>
+                <p>Get instant answers to your questions about Yabatech with our smart chatbot.</p>
+                <a href="{{ url_for('chatbot') }}" class="ask-question-button">Ask a Question</a>
+            </div>
+        </section>
+
+        <section class="what-we-do">
+            <h2>What We Do</h2>
+            <p>Our chatbot is designed to provide quick and accurate answers to frequently asked questions about Yabatech. Whether you need information about admissions, courses, or campus facilities, we've got you covered.</p>
+            <div class="horizontal-boxes">
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=🚀" alt="Instant Answers Icon">
+                    <h3>Instant Answers</h3>
+                    <p>Get immediate responses to your questions and avoid waiting for human assistance.</p>
+                </div>
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=📚" alt="Knowledge Base Icon">
+                    <h3>Comprehensive Knowledge Base</h3>
+                    <p>Our chatbot is trained on a vast database of information, ensuring accurate and up-to-date answers.</p>
+                </div>
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=⏳" alt="24/7 Availability Icon">
+                    <h3>24/7 Availability</h3>
+                    <p>Access our chatbot anytime, day or night, for immediate answers whenever you need it.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="our-mission">
+            <h2>Our Mission</h2>
+            <p>Our mission is to enhance the student experience at Yabatech by providing a reliable and efficient source of information. We aim to empower students with the knowledge they need to succeed.</p>
+            <div class="horizontal-boxes">
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=🎓" alt="Empower Students Icon">
+                    <h3>Empower Students</h3>
+                    <p>We strive to equip students with the knowledge they need to navigate their academic journey successfully.</p>
+                </div>
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=🗣️" alt="Improve Communication Icon">
+                    <h3>Improve Communication</h3>
+                    <p>Our chatbot facilitates seamless communication between students and the institution, bridging information gaps.</p>
+                </div>
+                <div class="box">
+                    <img src="https://placehold.co/50x50/ffffff/4CAF50?text=✅" alt="Ensure Accuracy Icon">
+                    <h3>Ensure Accuracy</h3>
+                    <p>We are committed to providing reliable and trustworthy information, ensuring students can rely on our chatbot.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-us-section">
+            <h2>Contact Us</h2>
+            <div class="contact-form">
+                <label for="name">Your Name</label>
+                <input type="text" id="name" name="name" placeholder="Enter your name">
+                <label for="email">Your Email</label>
+                <input type="email" id="email" name="email" placeholder="Enter your email">
+                <label for="message">Your Message</label>
+                <textarea id="message" name="message" placeholder="Enter your message"></textarea>
+                <button type="submit" class="send-message-button">Send Message</button>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>© 2024 Yabatech SmartBot. All rights reserved.</p>
+    </footer>
+</body>
+</html>

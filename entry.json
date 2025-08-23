@@ -1,0 +1,352 @@
+[
+    {
+        "SN": "1",
+        "program": "ACCOUNTANCY",
+        "olevel_compulsory": "Mathematics, English Language, Economics",
+        "olevel_electives": "Commerce, Geography, Biology/Agricultural Science, Government/Civic Education, Business Management/Method and Financial Accounting, Literature in English",
+        "utme_requirement": "English Language, Mathematics and any other two of Geography, Commerce, Government/History, Principle of Accounts and Economics"
+    },
+    {
+        "SN": "2",
+        "program": "AGRICULTURAL & BIO-ENVIRONMENTAL ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry and Biology/Agricultural Science",
+        "olevel_electives": "",
+        "utme_requirement": "Mathematics, English Language, Physics and Chemistry"
+    },
+    {
+        "SN": "3",
+        "program": "AGRICULTURAL TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Chemistry, Biology/Agric Science",
+        "olevel_electives": "Physics, Geography, Economics, Technical Drawing, Food & Nutrition, Animal Husbandry and Fisheries, Civic Education",
+        "utme_requirement": "English Language, Chemistry, Biology/Agric Science and any one from Mathematics, Geography, Physics and Economics"
+    },
+    {
+        "SN": "4",
+        "program": "ARCHITECTURE",
+        "olevel_compulsory": "Mathematics, English Language, Physics",
+        "olevel_electives": "Chemistry, Economics/Commerce, Biology, Further Mathematics, Technical Drawing, Fine Art and Geography",
+        "utme_requirement": "Mathematics, English Language, Physics, and any of Chemistry, Economics, Technical Drawing, Fine Art"
+    },
+    {
+        "SN": "5",
+        "program": "BANKING & FINANCE",
+        "olevel_compulsory": "English Language, Mathematics, Economics",
+        "olevel_electives": "Commerce, Business Methods, Principles of Accounts, Literature-In-English, Geography, Biology/Agricultural Science and History/Government, Financial Accounting / Book-keeping",
+        "utme_requirement": "English Language, Mathematics and any other two (2) subjects from Economics / Geography / History / Government / Commerce and Principle of Accounts"
+    },
+    {
+        "SN": "6",
+        "program": "BUILDING TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology, Economics, Technical Drawing, Geography, Further Mathematics, Wood work, Metal work, Building Construction, Building Drawing and Electronics",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry/Fine Art"
+    },
+    {
+        "SN": "7",
+        "program": "BUSINESS ADMINISTRATION",
+        "olevel_compulsory": "Mathematics, English Language, Economics",
+        "olevel_electives": "Government / History, Commerce, Business Methods, Principles of Account / Book Keeping, Civic Education, Citizenship, Statistics, Literature in English, Geography, Chemistry / Physics / Biology / Agric Science, Marketing",
+        "utme_requirement": "English Language, Mathematics, Economics and other subject from Government, History, Principle of Accounts, Commerce and Geography"
+    },
+    {
+        "SN": "8",
+        "program": "CHEMICAL ENGINEERING TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Statistics, Biology, Agricultural Science, Technical Drawing, Basic Electronics, Metal Work, Further Mathematics, Geography, Economics",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry"
+    },
+    {
+        "SN": "9",
+        "program": "CIVIL ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology/Agricultural Science, Technical Drawing, Auto Mechanics, Metal Work, Woodwork, Further Mathematics, Geography, Economics/Commerce, Bricklaying & Concrete Work and Building Construction, Basic electronics/ Basic Electricity",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry/Technical Drawing"
+    },
+    {
+        "SN": "10",
+        "program": "COMPUTER ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology/Agricultural Science, Technical Drawing, Statistic, Further Mathematics, Geography, Economics, Auto-mechanics, Metal work, Wood work, Commerce",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry"
+    },
+    {
+        "SN": "11",
+        "program": "COMPUTER SCIENCE",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Geography, Biology / Agric Science, Economics / Commerce and Data Processing / Computer Studies",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry"
+    },
+    {
+        "SN": "12",
+        "program": "ELECTRICAL ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology, Technical Drawing, Basic Electricity, Applied Electricity, Information and Communications Technology, Further Mathematics, Economics, Basic Electronics",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry"
+    },
+    {
+        "SN": "13",
+        "program": "ESTATE MANAGEMENT & VALUATION",
+        "olevel_compulsory": "Mathematics, English Language, Economics, Physics / Chemistry / Biology / Agricultural Science",
+        "olevel_electives": "Basic Surveying, Geography, Biology/Agric. Science, Technical Drawing/Fine Art, Literature in English, Metal Work, Principles of Accounts",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry, Biology"
+    },
+    {
+        "SN": "14",
+        "program": "FOOD TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Chemistry, Biology/Agric Science",
+        "olevel_electives": "Physics, Economics, Geography and Food & Nutrition",
+        "utme_requirement": "English Language, Mathematics, Biology / Agric Science and Chemistry"
+    },
+    {
+        "SN": "15",
+        "program": "GENERAL ART",
+        "olevel_compulsory": "English Language, Mathematics, Fine Art/Visual Art/Technical Drawing/Welding & Fabrication/Metal Work/Wood Work/General Metal Work/Painting & Decoration/Bleaching/Tie & Dye/Graphics",
+        "olevel_electives": "Chemistry, Physics, History/Government, Biology/Agricultural Science, Literature in English, Economics/Commerce, CRK/IRK, Geography and Photography/Tourism",
+        "utme_requirement": "English Language, Fine/Visual Art and any other two (2) O’Level subjects either in Arts, Science, Commerce and any of History, Chemistry, Mathematics, Biology, and a Nigerian Language"
+    },
+    {
+        "SN": "16",
+        "program": "HOSPITALITY MANAGEMENT",
+        "olevel_compulsory": "Mathematics, English Language, Biology/Agric Science",
+        "olevel_electives": "Geography, Food and Nutrition/Catering Craft, Health Science, Government, Commerce, Principles of Accounts, Economics, Physics, Chemistry",
+        "utme_requirement": "English Language, Biology/Agricultural Science, Mathematics and Economics"
+    },
+    {
+        "SN": "17",
+        "program": "FASHION DESIGN AND CLOTHING TECHNOLOGY",
+        "olevel_compulsory": "English Language, Mathematics, Fine Art/Visual Art/Biology/Agric. Science",
+        "olevel_electives": "Physics, Chemistry, Clothing and Textiles, Literature in English, Home Management, Home Economics, Commerce, Economics, Geography, Health Science, Food & Nutrition, CRK/IRK, Business Education, Civic Education, Office Practice, Yoruba/Hausa/Igbo, Technical Drawing",
+        "utme_requirement": "English Language, Fine Art, Biology and any other two (2) of Chemistry, Mathematics, Government, Literature in English, Economics and a Nigerian Language"
+    },
+    {
+        "SN": "18",
+        "program": "INDUSTRIAL MAINTENANCE ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology, Agric Science, Economics/Commerce, Technical Drawing, Basic Electronics/Basic Electricity, Auto Mechanics, Metal Work, Geography, Computer Studies, Further Maths",
+        "utme_requirement": "English Language, Mathematics, Physics and Chemistry"
+    },
+    {
+        "SN": "19",
+        "program": "LEISURE & TOURISM",
+        "olevel_compulsory": "English Language, Mathematics, Geography/Economics/Tourism Studies",
+        "olevel_electives": "Economics/Commerce, Book Keeping, Principles of Accounting, Fine Arts/French Language, Government/History, Food & Nutrition, Home Economics and Nigerian Language, Biology/Agric Science, Marketing",
+        "utme_requirement": "English Language, Mathematics and any two subjects from Geography, Economics, Tourism Studies, Biology/Agric Science, Food and Nutrition and French"
+    },
+    {
+        "SN": "20",
+        "program": "MARINE ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology/Agricultural Science, Technical Drawing, Statistics, Food and Nutrition, Further Mathematics, Geography, Economics / Commerce",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "21",
+        "program": "MARKETING",
+        "olevel_compulsory": "Mathematics, English Language",
+        "olevel_electives": "Economics, Commerce, Government/History, Book Keeping/Accounts, Geography, Biology/Agric. Science, Literature in English, Marketing, Civic Education, Purchasing, Store Management, Business Management/Method",
+        "utme_requirement": "English Language, Mathematics and any two (2) of Geography, Government/History, Principles of Accounts, Economics, Commerce, Marketing"
+    },
+    {
+        "SN": "22",
+        "program": "MASS COMMUNICATION",
+        "olevel_compulsory": "English Language and Mathematics, Literature In English",
+        "olevel_electives": "History, Economics/Commerce, Fine Arts, Government, Biology, Physics, Chemistry, Agric. Science, Geography, Typewriting, Principles of Accounting, Marketing and Yoruba/Hausa/Igbo, Photography",
+        "utme_requirement": "English Language, Literature-in-English, Economics and Government / History"
+    },
+    {
+        "SN": "23",
+        "program": "MECHANICAL ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Agricultural Science or Biology, Technical Drawing, Basic Electronics, Basic Electricity, Further Mathematics, Auto Mechanics, Geography",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "24",
+        "program": "MECHATRONICS ENGINEERING TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology/Agricultural Science, Technical Drawing, Basic Electronics/Basic Electricity, Auto Mechanics, Metal Work/Wood Work, Further Mathematics, Applied Electricity",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "25",
+        "program": "METALLURGICAL ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Agricultural Science or Biology, Technical Drawing, Basic Electronics, Basic Electricity, Further Mathematics, Auto Mechanics, Geography, Economics",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "26",
+        "program": "NUTRITION AND DIETETICS",
+        "olevel_compulsory": "English Language, Mathematics, Chemistry, Biology/Agricultural Science",
+        "olevel_electives": "Food and Nutrition, Economics, Physics, Statistics, Health Science (Home Economics)",
+        "utme_requirement": "English Language, Chemistry, Biology/Agricultural Science and Mathematics / Physics"
+    },
+    {
+        "SN": "27",
+        "program": "OFFICE TECHNOLOGY MANAGEMENT",
+        "olevel_compulsory": "Mathematics, English Language",
+        "olevel_electives": "Economics, Commerce, Business Methods, Principles of Accounts, History/Government, Typewriting, Shorthand, CRS/IRS, Civic Education, Biology/Agric Science, Yoruba / Igbo / Hausa",
+        "utme_requirement": "English Language and any three subjects from the following: Mathematics, Economics, Commerce, History/Government, Geography, Principle of Accounts and CRS/IRS"
+    },
+    {
+        "SN": "28",
+        "program": "PETROLEUM ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Agricultural Science or Biology, Technical Drawing, Basic Electronics, Basic Electricity, Further Mathematics, Auto Mechanics, Geography",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "29",
+        "program": "PHOTOGRAPHY",
+        "olevel_compulsory": "English Language, Mathematics",
+        "olevel_electives": "Biology/Agricultural Science, Visual Art, Commerce, Economics, Literature-In-English, Technical Drawing, Chemistry, Physics, Geography, History/Government/Civic Education, Clothing & Textile, CRS/IRS, Yoruba/Igbo/Hausa Language, Ceramics, Basketery, Dyeing and Bleaching",
+        "utme_requirement": "English, Biology/Agric Science/Visual Art/Literature and any two subjects from WAEC O’Level subjects either in Arts, Science, Commercial and Languages"
+    },
+    {
+        "SN": "30",
+        "program": "POLYMER TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Technical Drawing/Art, Further Mathematics, Biology/Agricultural Science, Metal Work, Wood Work, Statistics, Geography, Economics",
+        "utme_requirement": "English Language, Mathematics/Biology, Physics and Chemistry"
+    },
+    {
+        "SN": "31",
+        "program": "PRINTING TECHNOLOGY",
+        "olevel_compulsory": "English Language, Mathematics, Physics/Chemistry",
+        "olevel_electives": "Chemistry/Physics, Book Keeping and Principles of Accounting, Economics, Commerce, Metal Work, Basic Electricity, Technical Drawing/Fine Art, Geography, Further Mathematics, Biology, Literature in English, Physical Education, Agricultural Science, Computer Studies, Photography/Tourism, Trade Entrepreneurship Studies, Stenography, Marketing, Business Management, Health Education, Civic Education, Yoruba/Igbo/Hausa Language, IRK/CRK, Geography and Information & Communication Technology",
+        "utme_requirement": "Mathematics, English, Physics or Chemistry, and any other subject"
+    },
+    {
+        "SN": "32",
+        "program": "PUBLIC ADMINISTRATION",
+        "olevel_compulsory": "English Language, Mathematics, Government",
+        "olevel_electives": "Biology/Agricultural Science/Physics/Chemistry, Literature in English, Geography, Commerce, Economics, Citizenship/Civic Education, Principles of Accounts",
+        "utme_requirement": "English Language, Mathematics, Government and any one of Commerce, Economics, Principles of Accounts, Geography, Citizenship/Civic Education"
+    },
+    {
+        "SN": "33",
+        "program": "QUANTITY SURVEYING",
+        "olevel_compulsory": "Mathematics, English Language, Physics",
+        "olevel_electives": "Economics/Commerce, Technical Drawing/Fine Arts, Chemistry, Geography, Further Mathematics, Woodwork/Metal Work, Biology/Agric Science, Building Construction",
+        "utme_requirement": "English Language, Mathematics, Physics and any one from Geography, Economics, Biology, Agric Science and Chemistry"
+    },
+    {
+        "SN": "34",
+        "program": "RAILWAY ENGINEERING",
+        "olevel_compulsory": "English Language, Mathematics, Physics, Chemistry",
+        "olevel_electives": "Metal Work, Technical Drawing, Basic Electronics, Basic Electricity, Further Mathematics, Computer Studies, Biology or Agricultural Science",
+        "utme_requirement": "English Language, Mathematics, Physics, and Chemistry"
+    },
+    {
+        "SN": "35",
+        "program": "SCIENCE LABORATORY TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry, Biology",
+        "olevel_electives": "",
+        "utme_requirement": "English Language, Physics, Chemistry and Biology"
+    },
+    {
+        "SN": "36",
+        "program": "STATISTICS",
+        "olevel_compulsory": "Mathematics, English Language",
+        "olevel_electives": "Statistics, Economics, Geography, Government/History/Civic Education, Further Mathematics/Additional Mathematics, Physics, Chemistry, Biology/Agricultural Science, Food and Nutrition, Account/Commerce",
+        "utme_requirement": "English Language, Mathematics and any of the two including at least a science subject from the following: Physics, Chemistry, Biology/Agric Science, Economics, Commerce, Geography and Government"
+    },
+    {
+        "SN": "37",
+        "program": "SURVEYING & GEOINFORMATICS",
+        "olevel_compulsory": "Mathematics, English Language, Physics",
+        "olevel_electives": "Further Mathematics, Chemistry, Technical Drawing/Fine Art, Geography, Economics, Biology/Agricultural Science, Metal Work/Wood Work",
+        "utme_requirement": "English Language, Mathematics, Physics, and any one of Geography, Economics, Chemistry, Biology & Agric Science"
+    },
+    {
+        "SN": "38",
+        "program": "TAXATION",
+        "olevel_compulsory": "English Language, Mathematics",
+        "olevel_electives": "Economics, Commerce, Business Methods, Principles of Accounts, Literature in English, History, Statistics, Geography, Government, Agricultural Science/Biology",
+        "utme_requirement": "English Language, Mathematics, Economics and any other from Commerce, Business Methods, Principles of Accounts, Civic Education, Book Keeping and Government"
+    },
+    {
+        "SN": "39",
+        "program": "TEXTILE TECHNOLOGY",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Biology/Agricultural Science, Further Mathematics, Technical Drawing/Fine Art, Statistics, Geography and Economics",
+        "utme_requirement": "English Language, Physics, Chemistry, Mathematics/Biology"
+    },
+    {
+        "SN": "40",
+        "program": "TRANSPORT PLANNING & MANAGEMENT",
+        "olevel_compulsory": "English Language, Mathematics, Geography/Economics",
+        "olevel_electives": "Physics, Chemistry, Government/History, Technical Drawing, Biology/Agric Science, Account or Book keeping, Commerce, Civic Education, Statistics, ICT",
+        "utme_requirement": "English Language, Mathematics and any other two subjects from either Science subjects such as Physics, Chemistry, Biology, Agricultural Science, ICT, Technical Drawing or two Social Sciences such as Geography, Economics, Commerce, Government, History and Account"
+    },
+    {
+        "SN": "41",
+        "program": "URBAN & REGIONAL PLANNING",
+        "olevel_compulsory": "English Language, Mathematics, Physics/Chemistry/Biology/Agric. Science",
+        "olevel_electives": "Economics, Fine Art/Technical Drawing, Civic Education, Government / History, Commerce / Principle of Accounting, Geography, Data Processing/Statistics",
+        "utme_requirement": "English Language, Mathematics and any two (2) subjects from Geography, Physics/Chemistry, Biology/Agric Science, Economics, Fine Art/Technical Drawing, Government"
+    },
+    {
+        "SN": "42",
+        "program": "WELDING & FABRICATION ENGINEERING",
+        "olevel_compulsory": "Mathematics, English Language, Physics, Chemistry",
+        "olevel_electives": "Agricultural Science or Biology, Technical Drawing, Basic Electronics, Basic Electricity, Further Mathematics, Auto Mechanics, Geography",
+        "utme_requirement": "English Language, Mathematics, Chemistry and Physics"
+    },
+    {
+        "SN": "43",
+        "program": "LIBRARY AND INFORMATION SCIENCE",
+        "olevel_compulsory": "English Language and Mathematics",
+        "olevel_electives": "Accounting/Commerce, Biology, Book Keeping, Economics, Chemistry, CRK/IRK, Computer/Data Processing, Fine Art/Visual Art, Geography, Government, Home Economics/Food and Nutrition/Catering Craft Practice, Literature in English, Physics, Yoruba/Igbo/Hausa, Marketing",
+        "utme_requirement": "English Language, Mathematics and any other subjects from Arts, Social Science and Science"
+    },
+    {
+        "SN": "44",
+        "program": "ART EDUCATION",
+        "olevel_compulsory": "Mathematics, English Language",
+        "olevel_electives": "Literature in English, History, Fine Art/Applied Art/Visual Art, French, Igbo/Yoruba/Hausa, CRK/IRK, Music, Economics, Commerce, Government, Geography, Principles of Account",
+        "utme_requirement": "English, Fine Art or Visual Art, one other Art subject (such as Literature in English, History, Government, etc), and any other subject (such as Mathematics, Economics, Biology, etc)"
+    },
+    {
+        "SN": "45",
+        "program": "BIOLOGY EDUCATION",
+        "olevel_compulsory": "English Language, Biology, Mathematics",
+        "olevel_electives": "Chemistry, Physics, Agric Science, Health Science",
+        "utme_requirement": "Biology and two other subjects from Chemistry, Mathematics & Physics"
+    },
+    {
+        "SN": "46",
+        "program": "BUSINESS EDUCATION",
+        "olevel_compulsory": "English Language, Mathematics, Economics",
+        "olevel_electives": "Commerce, Office Practice, Principles/Financial Accounting, Secretarial/Clerical Office Duties, Typewriting, Shorthand, Book Keeping, Business Management, Government, History, Civic Education, ICT, Salesmanship, Marketing, Store Keeping/Management, Typewriting and Stenography, Geography",
+        "utme_requirement": "English Language, Mathematics, Economics plus one (1) of Commerce, History, Government, Geography, Financial Accounting, CRK"
+    },
+    {
+        "SN": "47",
+        "program": "CHEMISTRY EDUCATION",
+        "olevel_compulsory": "Mathematics, Chemistry, English Language",
+        "olevel_electives": "Physics, Biology, Agric Science, Health Science",
+        "utme_requirement": "Chemistry and any two (2) from Biology, Physics, Health Science and Agricultural Science"
+    },
+    {
+        "SN": "48",
+        "program": "COMPUTER EDUCATION",
+        "olevel_compulsory": "Mathematics, English Language, Physics",
+        "olevel_electives": "Chemistry, Biology/Agricultural Science, Further Mathematics, Geography, Economics, Computer Studies, Data Processing, GSM Phone Maintenance, ICT, Technical Drawing, Basic Electricity and Electrical Drawing",
+        "utme_requirement": "English Language, Mathematics, Physics plus two science or social science subjects"
+    },
+    {
+        "SN": "49",
+        "program": "HOME ECONOMICS EDUCATION",
+        "olevel_compulsory": "English Language, Mathematics, Chemistry/Biology",
+        "olevel_electives": "Home Economics/Management, Biology/Agricultural Science, Chemistry, Physics, Food & Nutrition, Economics, Cosmetology, Clothing & Textile/Garment Marking, Catering Craft, Health Education/Health Science, Dying & Bleaching, Leather Work/Leather Goods, Tourism, Jewellery and Basketery, Commerce, Geography",
+        "utme_requirement": "Chemistry or Biology plus any other two (2) Science or Social Science subjects like Agricultural Science, Home Economics, Physics, Mathematics, Economics, Commerce and Geography"
+    },
+    {
+        "SN": "50",
+        "program": "INDUSTRIAL TECHNICAL EDUCATION",
+        "olevel_compulsory": "Mathematics, English Language",
+        "olevel_electives": "Physics, Chemistry, Further Mathematics, Biology/Agricultural Science, Geography, Economics, Applied Electricity, Auto Body Repairs Spray Painting, Auto Electricity Work, Auto Mechanical Work/Mechanics, Metal Work, Machine Wood Work, Technical Drawing, Furniture Making/Upholstery, Welding & Fabrication/Engineering Craft Practice, Building Construction, Electrical Installation & Maintenance Work, Carpentry & Joinery, Bricklaying & Concreting, Auto Parts Merchandising, Plumbering & Pipe Setting",
+        "utme_requirement": "English Language, Mathematics plus any other two subjects from Science, Trade subjects, Technical Drawing, Woodwork, Basic Chemistry and Building Construction"
+    }
+]

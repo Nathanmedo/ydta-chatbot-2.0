@@ -1,0 +1,373 @@
+<!-- templates/base.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Yabatech FAQ Bot{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Adding a link to the Phosphor Icons library for the sun/moon icons -->
+    <script src="https://unpkg.com/@phosphor-icons/web@2.0.3"></script>
+    <style>
+        /* This is a placeholder hero image. You should replace it with your own. */
+        .hero-section {
+            background-image: url("https://placehold.co/1200x600/4CAF50/ffffff?text=Yabatech+Campus+Hero+Image");
+        }
+
+        /* Floating Chatbot Widget styles */
+        .floating-chat-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+        }
+
+        .chat-toggle-btn {
+            background-color: var(--primary-green);
+            color: white;
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 8px var(--shadow-color);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .chat-toggle-btn:hover {
+            transform: scale(1.1);
+        }
+
+        .chat-window {
+            display: none;
+            position: fixed;
+            bottom: 90px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background-color: var(--background-card);
+            border-radius: 12px;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            flex-direction: column;
+            color: var(--text-color-dark);
+        }
+        
+        .chat-window.active {
+            display: flex;
+        }
+
+        .chat-window-header {
+            background-color: var(--primary-green);
+            color: white;
+            padding: 1rem;
+            border-top-left-radius: 12px;
+            border-top-right-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .chat-window-header-buttons {
+            display: flex;
+            gap: 0.5rem;
+        }
+        
+        .chat-window-close-btn, .chat-window-expand-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .chat-window-history {
+            flex-grow: 1;
+            padding: 1rem;
+            overflow-y: auto;
+            background-color: var(--background-light);
+        }
+
+        .chat-message {
+            display: flex;
+            align-items: flex-end;
+            margin-bottom: 1rem;
+        }
+
+        .chat-message.user-message {
+            justify-content: flex-end;
+        }
+
+        .chat-message.bot-message {
+            justify-content: flex-start;
+        }
+
+        .message-bubble {
+            max-width: 80%;
+            padding: 0.75rem 1rem;
+            border-radius: 1.5rem;
+            line-height: 1.4;
+            word-wrap: break-word;
+        }
+
+        .user-message .message-bubble {
+            background-color: var(--chat-bubble-user);
+            color: white;
+            border-bottom-right-radius: 0;
+        }
+
+        .bot-message .message-bubble {
+            background-color: var(--chat-bubble-bot);
+            color: var(--chat-bubble-bot-text);
+            border-bottom-left-radius: 0;
+        }
+        
+        .chat-window-input-area {
+            display: flex;
+            padding: 1rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--background-card);
+        }
+
+        .chat-window-footer {
+            text-align: center;
+            font-size: 0.8rem;
+            color: var(--text-color-light);
+            padding: 0.5rem;
+            border-top: 1px solid var(--border-color);
+            background-color: var(--background-card);
+            border-bottom-left-radius: 12px;
+            border-bottom-right-radius: 12px;
+        }
+
+        .chat-window-input-area input {
+            flex-grow: 1;
+            border: 1px solid var(--border-color);
+            background-color: var(--background-light);
+            color: var(--text-color-dark);
+            border-radius: 20px;
+            padding: 0.5rem 1rem;
+            outline: none;
+        }
+        
+        .chat-window-input-area button {
+            background-color: var(--primary-green);
+            color: white;
+            border: none;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            margin-left: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Yabatech FAQ Bot</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+                <li>
+                    <!-- Dark Mode Toggle Switch -->
+                    <label class="theme-switch">
+                        <input type="checkbox" id="theme-toggle">
+                        <span class="slider">
+                            <i class="ph ph-moon-fill icon moon-icon"></i>
+                            <i class="ph ph-sun-fill icon sun-icon"></i>
+                        </span>
+                    </label>
+                </li>
+            </ul>
+        </nav>
+        <a href="{{ url_for('chatbot') }}" class="nav-button">Start Chatting</a>
+    </header>
+
+    {% block content %}
+    {% endblock %}
+
+    <footer class="site-footer">
+        © 2024 Yabatech FAQ Bot. All Rights Reserved.
+    </footer>
+
+    <!-- Floating Chatbot Widget (will appear on all pages extending this base template) -->
+    <div class="floating-chat-container">
+        <div class="chat-toggle-btn" id="chat-toggle-btn">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-message-square-more"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/><path d="M8 10h.01"/><path d="M12 10h.01"/><path d="M16 10h.01"/></svg>
+        </div>
+
+        <div class="chat-window" id="chat-window">
+            <div class="chat-window-header">
+                <h3>Yabatech FAQ Bot</h3>
+                <div class="chat-window-header-buttons">
+                    <button class="chat-window-expand-btn" id="chat-expand-btn">
+                       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-maximize"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+                    </button>
+                    <button class="chat-window-close-btn" id="chat-close-btn">&times;</button>
+                </div>
+            </div>
+            <div class="chat-window-history" id="widget-chat-history">
+                <!-- Chat messages will be added here -->
+            </div>
+            <div class="chat-window-input-area">
+                <input type="text" id="widget-user-input" placeholder="Ask a question...">
+                <button id="widget-send-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send-horizontal"><path d="m3 3 3 9-3 9 19-9Z"/><path d="M6 12h16"/></svg>
+                </button>
+            </div>
+            <div class="chat-window-footer">
+                Powered by YDTA TEAM ❤️
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript for the floating chatbot -->
+    <script>
+        const CHAT_STORAGE_KEY = 'yabatech_chat_history';
+        const chatWindow = document.getElementById('chat-window');
+        const widgetUserInput = document.getElementById('widget-user-input');
+        const widgetSendBtn = document.getElementById('widget-send-btn');
+        const widgetChatHistory = document.getElementById('widget-chat-history');
+
+        // Dark Mode Toggle Logic
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        // Check for saved theme preference on page load
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.classList.add('dark-mode');
+            themeToggle.checked = true;
+        }
+
+        // Listen for changes on the toggle switch
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.classList.add('dark-mode');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.classList.remove('dark-mode');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Function to save chat history to local storage
+        function saveChatHistory() {
+            const messages = [];
+            widgetChatHistory.querySelectorAll('.chat-message').forEach(messageDiv => {
+                const sender = messageDiv.classList.contains('user-message') ? 'user' : 'bot';
+                const content = messageDiv.querySelector('.message-bubble').textContent;
+                messages.push({ sender, content });
+            });
+            localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+        }
+
+        // Function to load chat history from local storage
+        function loadChatHistory() {
+            const savedHistory = localStorage.getItem(CHAT_STORAGE_KEY);
+            if (savedHistory) {
+                const messages = JSON.parse(savedHistory);
+                messages.forEach(msg => {
+                    const messageDiv = document.createElement('div');
+                    messageDiv.className = `chat-message ${msg.sender}-message`;
+                    messageDiv.innerHTML = `<div class="message-bubble">${msg.content}</div>`;
+                    widgetChatHistory.appendChild(messageDiv);
+                });
+            } else {
+                // If no history, add the initial bot message
+                const initialMessageDiv = document.createElement('div');
+                initialMessageDiv.className = 'chat-message bot-message';
+                initialMessageDiv.innerHTML = `<div class="message-bubble">Hello! I'm the Yabatech FAQ Bot. How can I help you today?</div>`;
+                widgetChatHistory.appendChild(initialMessageDiv);
+            }
+            widgetChatHistory.scrollTop = widgetChatHistory.scrollHeight;
+        }
+
+        // Initial load of chat history
+        document.addEventListener('DOMContentLoaded', loadChatHistory);
+
+        // This is the core toggle functionality you asked about
+        document.getElementById('chat-toggle-btn').addEventListener('click', function() {
+            chatWindow.classList.toggle('active');
+        });
+
+        document.getElementById('chat-close-btn').addEventListener('click', function() {
+            chatWindow.classList.remove('active');
+        });
+
+        // Expand button logic to go to the full chat page
+        document.getElementById('chat-expand-btn').addEventListener('click', function() {
+            saveChatHistory();
+            window.location.href = "{{ url_for('chatbot') }}";
+        });
+
+        widgetUserInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                sendWidgetMessage();
+            }
+        });
+        widgetSendBtn.addEventListener('click', sendWidgetMessage);
+
+        async function sendWidgetMessage() {
+            const message = widgetUserInput.value.trim();
+            if (!message) return;
+
+            // Add user message to history
+            const userMessageDiv = document.createElement('div');
+            userMessageDiv.className = 'chat-message user-message';
+            userMessageDiv.innerHTML = `<div class="message-bubble">${message}</div>`;
+            widgetChatHistory.appendChild(userMessageDiv);
+
+            widgetUserInput.value = '';
+            widgetChatHistory.scrollTop = widgetChatHistory.scrollHeight;
+
+            // Add typing indicator
+            const botTypingDiv = document.createElement('div');
+            botTypingDiv.className = 'chat-message bot-message';
+            botTypingDiv.innerHTML = `<div class="message-bubble loading-dots"><span>.</span><span>.</span><span>.</span></div>`;
+            widgetChatHistory.appendChild(botTypingDiv);
+            widgetChatHistory.scrollTop = widgetChatHistory.scrollHeight;
+
+            try {
+                // This is the fetch call to your Flask backend
+                const response = await fetch('/ask', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ message: message })
+                });
+
+                const data = await response.json();
+                
+                // Remove typing indicator
+                widgetChatHistory.removeChild(botTypingDiv);
+                
+                // Add bot response to history
+                const botResponseDiv = document.createElement('div');
+                botResponseDiv.className = 'chat-message bot-message';
+                botResponseDiv.innerHTML = `<div class="message-bubble">${data.response}</div>`;
+                widgetChatHistory.appendChild(botResponseDiv);
+                
+            } catch (error) {
+                console.error('Error fetching bot response:', error);
+                widgetChatHistory.removeChild(botTypingDiv);
+                
+                const errorDiv = document.createElement('div');
+                errorDiv.className = 'chat-message bot-message';
+                errorDiv.innerHTML = `<div class="message-bubble">Sorry, something went wrong. Please try again.</div>`;
+                widgetChatHistory.appendChild(errorDiv);
+            }
+
+            widgetChatHistory.scrollTop = widgetChatHistory.scrollHeight;
+            saveChatHistory(); // Save after every new message
+        }
+    </script>
+</body>
+</html>

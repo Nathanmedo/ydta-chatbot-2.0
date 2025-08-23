@@ -1,0 +1,25 @@
+{
+  "name": "vercel-python-api",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "vercel dev",
+    "deploy": "vercel deploy --prod"
+  },
+  "devDependencies": {
+    "vercel": "^19.2.0"
+  },
+  "description": "The **Yabatech AI Assistant** is a web-based chatbot designed to provide instant and accurate information to students and prospective students of **Yaba College of Technology**.  \r It answers common questions related to **admissions, school fees, academic programs, and campus life**, leveraging an AI model for helpful and conversational responses.",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/whoshnri/yct_chatbot.git"
+  },
+  "keywords": [],
+  "author": "",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/whoshnri/yct_chatbot/issues"
+  },
+  "homepage": "https://github.com/whoshnri/yct_chatbot#readme"
+}

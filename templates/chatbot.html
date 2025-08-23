@@ -1,0 +1,475 @@
+<!-- templates/chatbot.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Yabatech FAQ Bot - Chatbot</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .hero-section {
+            background-image: url("https://placehold.co/1200x600/4CAF50/ffffff?text=Yabatech+Campus+Hero+Image");
+        }
+
+        .icon-btn {
+            cursor: pointer;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        .mic-icon {
+            font-size: 24px;
+            color: #4CAF50;
+        }
+
+        .mic-icon.active {
+            animation: pulse 1.5s infinite;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.1);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .learning-icon-svg {
+            font-size: 24px;
+            color: #1a73e8;
+            /* Default color */
+        }
+
+        .learning-icon-svg:hover {
+            color: #0d47a1;
+            /* Darker blue on hover */
+        }
+
+        .learning-icon-svg.active {
+            color: #e53935;
+            /* Red color when active */
+            animation: shake 0.5s;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes shake {
+            0% {
+                transform: translate(1px, 1px) rotate(0deg);
+            }
+
+            10% {
+                transform: translate(-1px, -2px) rotate(-1deg);
+            }
+
+            20% {
+                transform: translate(-3px, 0px) rotate(1deg);
+            }
+
+            30% {
+                transform: translate(3px, 2px) rotate(0deg);
+            }
+
+            40% {
+                transform: translate(1px, -1px) rotate(1deg);
+            }
+
+            50% {
+                transform: translate(-1px, 2px) rotate(-1deg);
+            }
+
+            60% {
+                transform: translate(-3px, 1px) rotate(0deg);
+            }
+
+            70% {
+                transform: translate(3px, 1px) rotate(-1deg);
+            }
+
+            80% {
+                transform: translate(-1px, -1px) rotate(1deg);
+            }
+
+            90% {
+                transform: translate(1px, 2px) rotate(0deg);
+            }
+
+            100% {
+                transform: translate(1px, -2px) rotate(-1deg);
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- --- Top Navigation Bar --- -->
+    <header class="navbar">
+        <div class="logo">Yabatech SmartBot</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+        <!-- The 'Get Started' link has been changed to 'Read more about the chatbot' -->
+        <a href="{{ url_for('about') }}" class="nav-button">Read more about the chatbot</a>
+    </header>
+
+    <!-- --- Main Chatbot Layout --- -->
+    <div class="chatbot-container">
+        <!-- Sidebar -->
+        <aside class="sidebar">
+            <div>
+                <div class="logo">YABATECH FAQ Bot</div>
+                <nav class="sidebar-nav">
+                    <ul>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=A"
+                                    alt="Admissions Icon"> Admissions</a></li>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=C" alt="Courses Icon">
+                                Courses</a></li>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=P" alt="Payments Icon">
+                                Payments</a></li>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=H" alt="Hostel Icon">
+                                Hostel</a></li>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=E" alt="Exams Icon">
+                                Exams</a></li>
+                        <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=O" alt="Other Icon">
+                                Others</a></li>
+                    </ul>
+                </nav>
+            </div>
+            <div class="sidebar-bottom">
+                <ul>
+                    <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=AD" alt="Admin Icon">
+                            Admin</a></li>
+                    <li><a href="#"><img src="https://placehold.co/20x20/E8F5E9/4CAF50?text=H" alt="Help Icon"> Help</a>
+                    </li>
+                </ul>
+            </div>
+        </aside>
+
+        <!-- Main Chat Area -->
+        <main class="chat-main">
+            <div class="chat-header">
+                <h2>Welcome to YABATECH FAQ Bot</h2>
+                <p>Ask me anything about YABATECH. I'm here to help!</p>
+            </div>
+            <div class="chat-history" id="chat-history">
+                <!-- Chat messages will be dynamically added here by JavaScript. -->
+            </div>
+            <div class="chat-input-area">
+                <input type="text" id="user-input" placeholder="Type your question here...">
+                <div class="input-icons">
+                    <!-- Guided learning button -->
+                    <button class="icon-btn" id="guided-learning-btn">
+                        <svg class="learning-icon-svg" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-book-open-text">
+                            <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" />
+                            <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" />
+                            <path d="M6 8h2" />
+                            <path d="M6 12h2" />
+                            <path d="M16 8h2" />
+                            <path d="M16 12h2" />
+                        </svg>
+                    </button>
+                    <!-- Voice recognition button -->
+                    <button class="icon-btn" id="voice-rec-btn">
+                        <svg class="mic-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                            stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-mic">
+                            <path d="M12 2a3 3 0 0 0-3 3v7a3 3 0 0 0 6 0V5a3 3 0 0 0-3-3Z" />
+                            <path d="M19 10v2a7 7 0 0 1-14 0v-2" />
+                            <line x1="12" x2="12" y1="19" y2="22" />
+                        </svg>
+                    </button>
+                </div>
+                <button class="send-button" id="send-button">Send</button>
+            </div>
+        </main>
+    </div>
+
+    <!-- The only section that has been updated to handle chat history -->
+    <script>
+        // Constants for localStorage key and DOM elements
+        const CHAT_STORAGE_KEY = 'yabatech_chat_history';
+        const chatHistoryDiv = document.getElementById('chat-history');
+        const userInput = document.getElementById('user-input');
+        const sendButton = document.getElementById('send-button');
+        const guidedLearningBtn = document.getElementById('guided-learning-btn');
+        const voiceRecBtn = document.getElementById('voice-rec-btn');
+
+        // State variable for guided learning mode
+        let isGuidedLearningActive = false;
+
+        // --- Helper Functions ---
+
+
+        function markdownToHtml(rawText) {
+            // Replace bold text: **text** with <strong>text</strong>
+            let html = rawText.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>');
+
+            // Replace inline code: `code` with <code>code</code>
+            html = html.replace(/`(.*?)`/g, '<code>$1</code>');
+
+            // Replace headings: # Heading with <h1>Heading</h1>
+            html = html.replace(/^#\s(.*?)$/gm, '<h1>$1</h1>');
+
+            // Replace italic text: *text* or _text_ with <em>text</em>
+            html = html.replace(/(\*|_)(.*?)\1/g, '<em>$2</em>');
+
+            // Replace horizontal rule: --- or *** with <hr>
+            html = html.replace(/^-{3,}$/gm, '<hr>');
+            html = html.replace(/^\*{3,}$/gm, '<hr>');
+
+            // Replace bullet points: * Item or - Item with <ul><li>...</li></ul>
+            // This is a simplified version and may need more complex logic for nested lists
+            html = html.replace(/^(?:\*|\-)\s(.*?)$/gm, '<li>$1</li>');
+            if (html.includes('<li>')) {
+                html = '<ul>' + html + '</ul>';
+            }
+
+            // Replace newlines with <br> tags. Note: This should be one of the last replacements
+            // to avoid issues with other block-level elements.
+            html = html.replace(/\n/g, '<br>');
+
+            return html;
+        }
+
+
+        // Adds a message to the chat history and saves it to localStorage
+        function addMessageToHistory(sender, content) {
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `chat-message ${sender}-message`;
+
+            const profilePicUrl = sender === 'user' ?
+                'https://placehold.co/40x40/E8F5E9/4CAF50?text=You' :
+                'https://placehold.co/40x40/f4f6f8/4CAF50?text=FAQ';
+            const profilePicAlt = sender === 'user' ? 'User Profile Picture' : 'FAQ Bot Profile Picture';
+
+            // --- THIS SECTION HAS BEEN UPDATED ---
+            // Conditional HTML to place the user's profile picture on the right
+            if (sender === 'user') {
+                messageDiv.innerHTML = `
+                    <div class="message-bubble">${markdownToHtml(content)}</div>
+                    <img src="${profilePicUrl}" alt="${profilePicAlt}" class="profile-pic">
+                `;
+            } else {
+                messageDiv.innerHTML = `
+                    <img src="${profilePicUrl}" alt="${profilePicAlt}" class="profile-pic">
+                    <div class="message-bubble">${markdownToHtml(content)}</div>
+                `;
+            }
+            // --- END OF UPDATED SECTION ---
+
+            chatHistoryDiv.appendChild(messageDiv);
+            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+            saveChatHistory();
+        }
+
+        // Saves the current chat history to localStorage
+        function saveChatHistory() {
+            const messages = [];
+            document.querySelectorAll('.chat-message').forEach(msgDiv => {
+                const sender = msgDiv.classList.contains('user-message') ? 'user' : 'bot';
+                const content = msgDiv.querySelector('.message-bubble').innerHTML;
+                messages.push({ sender, content });
+            });
+            localStorage.setItem(CHAT_STORAGE_KEY, JSON.stringify(messages));
+        }
+
+        // Loads and renders chat history from localStorage on page load
+        function loadChatHistory() {
+            const savedHistory = localStorage.getItem(CHAT_STORAGE_KEY);
+            if (savedHistory) {
+                const messages = JSON.parse(savedHistory);
+                messages.forEach(msg => {
+                    addMessageToHistory(msg.sender, msg.content);
+                });
+            } else {
+                addMessageToHistory('bot', "Hello! How can I assist you today?");
+            }
+        }
+
+        // --- Event Handlers ---
+
+        // Handles sending a message via the send button or enter key
+        async function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            addMessageToHistory('user', message);
+            userInput.value = '';
+
+            // Add typing indicator
+            const botTypingDiv = document.createElement('div');
+            botTypingDiv.className = 'chat-message bot-message';
+            botTypingDiv.innerHTML = `<img src="https://placehold.co/40x40/f4f6f8/4CAF50?text=FAQ" alt="FAQ Bot Profile Picture" class="profile-pic"><div class="message-bubble loading-dots"><span>.</span><span>.</span><span>.</span></div>`;
+            chatHistoryDiv.appendChild(botTypingDiv);
+            chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+
+            const endpoint = isGuidedLearningActive ? '/guided_learning' : '/ask';
+            const bodyPayload = isGuidedLearningActive ? { topic: message } : { message: message };
+
+            try {
+                const response = await fetch(endpoint, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(bodyPayload)
+                });
+
+                const data = await response.json();
+
+                chatHistoryDiv.removeChild(botTypingDiv);
+
+                let botResponseContent = data.response;
+                if (isGuidedLearningActive) {
+                    botResponseContent = `**Guided Learning Plan:**<br>${data.response}`;
+                }
+                addMessageToHistory('bot', botResponseContent);
+            } catch (error) {
+                console.error('Error fetching bot response:', error);
+                chatHistoryDiv.removeChild(botTypingDiv);
+                addMessageToHistory('bot', "Sorry, something went wrong. Please try again.");
+            }
+        }
+
+        // Toggles the guided learning mode
+        function toggleGuidedLearning() {
+            const query = userInput.value.trim();
+            const guidedLearningIcon = guidedLearningBtn.querySelector('svg');
+
+            // Use a simple modal or chat message for user feedback instead of an alert
+            const showMessage = (text) => addMessageToHistory('bot', text);
+
+            if (isGuidedLearningActive) {
+                isGuidedLearningActive = false;
+                guidedLearningIcon.classList.remove('active');
+                userInput.placeholder = "Type your question here...";
+                showMessage("Guided learning has ended. I am now back to answering general questions.");
+            } else {
+                if (!query) {
+                    showMessage("Please enter a topic to start guided learning.");
+                    return;
+                }
+                isGuidedLearningActive = true;
+                guidedLearningIcon.classList.add('active');
+                userInput.placeholder = "Guided Learning Active. Enter your course or topic to research.";
+
+                addMessageToHistory('user', `I want to learn about: ${query}`);
+                userInput.value = '';
+
+                // Add a "typing" indicator
+                const botTypingDiv = document.createElement('div');
+                botTypingDiv.className = 'chat-message bot-message';
+                botTypingDiv.innerHTML = `<img src="https://placehold.co/40x40/f4f6f8/4CAF50?text=FAQ" alt="FAQ Bot Profile Picture" class="profile-pic"><div class="message-bubble loading-dots"><span>.</span><span>.</span><span>.</span></div>`;
+                chatHistoryDiv.appendChild(botTypingDiv);
+                chatHistoryDiv.scrollTop = chatHistoryDiv.scrollHeight;
+
+                fetch('/guided_learning', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ topic: query })
+                })
+                    .then(response => response.json())
+                    .then(data => {
+                        chatHistoryDiv.removeChild(botTypingDiv);
+                        addMessageToHistory('bot', `**Guided Learning Plan:**<br>${data.response}`);
+                    })
+                    .catch(error => {
+                        console.error('Error fetching guided learning plan:', error);
+                        chatHistoryDiv.removeChild(botTypingDiv);
+                        showMessage("Sorry, I couldn't generate a learning plan. Please try again.");
+                    });
+            }
+        }
+
+        // --- Voice Recognition Logic ---
+        let recognition;
+        const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+        if (SpeechRecognition) {
+            recognition = new SpeechRecognition();
+            recognition.continuous = false; // Recognizes a single phrase
+            recognition.lang = 'en-US';
+
+            // Event listener for when speech is recognized
+            recognition.onresult = (event) => {
+                const last = event.results.length - 1;
+                const text = event.results[last][0].transcript;
+                userInput.value = text;
+            };
+
+            // Event listener for when recognition ends (either with or without results)
+            recognition.onend = () => {
+                voiceRecBtn.classList.remove('active');
+                const micIcon = voiceRecBtn.querySelector('svg');
+                micIcon.classList.remove('active');
+                // You can add a message here to indicate the session ended, if desired.
+                // addMessageToHistory('bot', "Voice input session ended.");
+            };
+
+            // Event listener for errors
+            recognition.onerror = (event) => {
+                console.error('Speech recognition error:', event.error);
+                voiceRecBtn.classList.remove('active');
+                const micIcon = voiceRecBtn.querySelector('svg');
+                micIcon.classList.remove('active');
+                addMessageToHistory('bot', `Speech recognition error: ${event.error}`);
+            };
+
+        } else {
+            // Fallback for browsers that don't support the Web Speech API
+            addMessageToHistory('bot', "Your browser doesn't support the Web Speech API. Please use a text-based input.");
+            voiceRecBtn.disabled = true;
+            voiceRecBtn.title = "Voice recognition is not supported in this browser.";
+        }
+
+        // Toggles the voice recognition state
+        function toggleVoiceRecognition() {
+            if (!recognition) {
+                return;
+            }
+
+            const micIcon = voiceRecBtn.querySelector('svg');
+
+            if (micIcon.classList.contains('active')) {
+                // If active, stop listening
+                recognition.stop();
+                micIcon.classList.remove('active');
+                // addMessageToHistory('bot', "Voice input is now inactive."); // This is handled by the onend event
+            } else {
+                // If inactive, start listening
+                recognition.start();
+                micIcon.classList.add('active');
+                addMessageToHistory('bot', "Voice input is now active. Please speak your question.");
+            }
+        }
+
+        // --- Main Initialization ---
+
+        // Load chat history when the document is ready
+        document.addEventListener('DOMContentLoaded', loadChatHistory);
+
+        // Attach event listeners
+        userInput.addEventListener('keydown', (event) => {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        });
+        sendButton.addEventListener('click', sendMessage);
+        guidedLearningBtn.addEventListener('click', toggleGuidedLearning);
+        voiceRecBtn.addEventListener('click', toggleVoiceRecognition);
+
+    </script>
+</body>
+
+</html>

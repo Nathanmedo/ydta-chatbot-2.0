@@ -1,0 +1,46 @@
+<!-- templates/contact.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Contact Us</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header class="navbar">
+        <div class="logo">Yabatech FAQ Bot</div>
+        <nav>
+            <ul>
+                <li><a href="{{ url_for('home') }}">Home</a></li>
+                <li><a href="{{ url_for('about') }}">About</a></li>
+                <li><a href="{{ url_for('contact') }}">Contact</a></li>
+            </ul>
+        </nav>
+        <a href="{{ url_for('chatbot') }}" class="nav-button">Start Chatting</a>
+    </header>
+
+    <main class="contact-container">
+        <h1>Contact Us</h1>
+        <p>We're here to help! If you have any questions or need assistance, please reach out to us using the form below or via email.</p>
+        <form action="{{ url_for('contact') }}" method="POST" class="contact-form">
+            <label for="name">Your Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+
+            <label for="email">Your Email</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email" required>
+
+            <label for="subject">Subject</label>
+            <input type="text" id="subject" name="subject" placeholder="Enter the subject" required>
+
+            <label for="message">Message</label>
+            <textarea id="message" name="message" placeholder="Enter your message" rows="6" required></textarea>
+
+            <button type="submit" class="send-message-button">Send Message</button>
+        </form>
+        <div class="support-email">
+            <h3>Support Email</h3>
+            <p>For direct assistance, you can also email us at <b>support@smartbot.com</b>. We aim to respond within 24 hours.</p>
+        </div>
+    </main>
+</body>
+</html>
