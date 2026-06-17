@@ -8,7 +8,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
 :root {
-    --primary-green: #4CAF50;
+    --yaba-camarone: #006600;
+    --yaba-salem: #0f9e5e;
+    --yaba-viking: #5bc0de;
+    --primary-green: var(--yaba-camarone);
     --light-green: #E8F5E9;
     --text-color-dark: #333333;
     --text-color-light: #666666;
@@ -660,10 +663,10 @@ a:hover {
 
 
 
-/* General page style */
-body {
+/* Login page specific layout (applies only when body.login-page is present) */
+body.login-page {
     font-family: Arial, sans-serif;
-    background: linear-gradient(135deg, #4facfe, #00f2fe);
+    background: linear-gradient(135deg, var(--yaba-viking), var(--yaba-salem));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -725,15 +728,15 @@ body {
     transition: 0.3s;
 }
 .input-field:focus {
-    border-color: #4facfe;
-    box-shadow: 0 0 6px rgba(79, 172, 254, 0.5);
+    border-color: var(--yaba-viking);
+    box-shadow: 0 0 6px rgba(91, 192, 222, 0.25);
 }
 
 /* Submit button */
 .btn {
     width: 100%;
     padding: 12px;
-    background: #4facfe;
+    background: var(--yaba-viking);
     color: white;
     font-size: 16px;
     border: none;
@@ -742,5 +745,5 @@ body {
     transition: background 0.3s;
 }
 .btn:hover {
-    background: #00c6ff;
+    background: #3fb8d6;
 }

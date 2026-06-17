@@ -9,6 +9,11 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
+        :root {
+            --yaba-camarone: #006600; /* camarone */
+            --yaba-salem: #0f9e5e;    /* salem */
+            --yaba-viking: #5bc0de;   /* viking */
+        }
         .hero-section {
             background-image: url("https://placehold.co/1200x600/4CAF50/ffffff?text=Yabatech+Campus+Hero+Image");
         }
@@ -20,7 +25,7 @@
 
         .mic-icon {
             font-size: 24px;
-            color: #4CAF50;
+            color: var(--yaba-salem);
         }
 
         .mic-icon.active {
@@ -43,7 +48,7 @@
 
         .learning-icon-svg {
             font-size: 24px;
-            color: #1a73e8;
+            color: var(--yaba-viking);
             /* Default color */
         }
 
@@ -54,7 +59,7 @@
 
         .learning-icon-svg.active {
             color: #e53935;
-            /* Red color when active */
+            /* Red color when active */ 
             animation: shake 0.5s;
             animation-iteration-count: infinite;
         }
@@ -104,6 +109,13 @@
                 transform: translate(1px, -2px) rotate(-1deg);
             }
         }
+        /* Theme overrides (safe, visual-only) */
+        .navbar .logo { color: var(--yaba-camarone); font-weight:700; }
+        .nav-button { background-color: var(--yaba-salem); color: white; padding: 0.5rem 0.85rem; border-radius: 6px; }
+        .send-button { background-color: var(--yaba-camarone); color: white; border-radius: 6px; padding: 0.5rem 0.85rem; }
+        .chat-message.user-message .message-bubble { background-color: var(--yaba-camarone); color: white; }
+        .chat-message.bot-message .message-bubble { background-color: #eef9fb; color: #073642; }
+        .icon-btn:hover { transform: translateY(-2px); }
     </style>
 </head>
 

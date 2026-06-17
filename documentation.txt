@@ -1,0 +1,144 @@
+
+Project: Yabatech FAQ Bot (yctbot_backend)
+
+Environment variables (required)
+- DATABASE_URL: Postgres-compatible SQLAlchemy URL for the app database.
+	- Example: postgres://USER:PASS@HOST:PORT/DBNAME
+	- Where to get it: create a PostgreSQL database (local, Heroku, ElephantSQL, Supabase, RDS) and use the connection string.
+	- Notes: code expects SQLAlchemy-compatible string; for some drivers you may need to replace "postgres://" with "postgresql+psycopg2://".
+
+- GEMINI_API_KEY: Google Generative AI (Gemini) API key.
+	- Where to get it: enable the Generative AI API in Google Cloud and create an API key or use service account credentials as required by your client library.
+	- Used by: `app.py` and `ai_bot.py` to call the LLM.
+
+- MASTER_ADMIN_KEY: a secret string used to validate admin creation (`/make_admin`).
+	- Where to get it: pick any strong secret and place it in your `.env` before creating the first admin.
+
+- HUGGINGFACEHUB_API_TOKEN: (optional) token for Hugging Face Hub.
+	- Where to get it: your Hugging Face account settings → Access Tokens.
+	- Used by: `vector.py` when initializing embeddings (HuggingFaceEndpointEmbeddings).
+
+Other notes on credentials:
+- No explicit Google service account filename or `GOOGLE_APPLICATION_CREDENTIALS` env var is required in the code, but if you prefer service-account-based authentication for Google APIs, follow Google Cloud's docs and provide credentials accordingly.
+
+API Endpoints and payloads
+
+GET /
+- Description: Renders the home page HTML.
+- Request: none
+- Response: HTML page `home.html`
+
+GET /about
+- Description: Renders about page.
+- Request: none
+- Response: HTML page `about.html`
+
+GET /contact
+- Description: Renders contact page.
+- Request: none
+- Response: HTML page `contact.html`
+
+POST /contact
+- Description: Handles contact form.
+- Request form fields: `name`, `email`, `subject`, `message`
+- Response: HTML thank-you message (simple response)
+
+GET /chatbot
+- Description: Renders the chatbot UI and resets session chat history.
+- Request: none
+- Response: HTML page `chatbot.html`
+
+POST /ask
+- Description: Main chat endpoint. Sends user message to LLM and returns response.
+- Request JSON: { "message": string, "history": optional array }
+	- `history` is an array of chat turns (objects with `sender`, `text`) used to build context.
+- Response JSON: { "response": string }
+- Side effects: logs response time into DB (BotSpeedLogs) and may save unanswered questions.
+
+POST /guided_learning
+- Description: Requests a guided-learning plan for a topic.
+- Request JSON: { "topic": string }
+- Response JSON: { "response": string }
+
+GET /get-unanswered
+- Description: Returns unanswered questions stored in DB.
+- Response JSON: { "data": [ {id, question, category}, ... ] }
+
+GET /get-logs
+- Description: Returns average bot response time across logs.
+- Response JSON: { "average": number }
+
+POST /edit_unanswered
+- Description: Accepts an unanswered entry, creates a Q&A and triggers vector sync.
+- Request JSON: { "question": string, "answer": string, "category": string, "id": optional }
+- Response: JSON status message (depends on DB and sync result)
+
+POST /edit-qa
+- Description: Edit existing Q&A entry.
+- Request JSON: { "id": int, "question": string (optional), "answer": string (optional), "category": string (optional) }
+- Response JSON: { "status": 1|0, "message": string }
+
+POST /add-qa
+- Description: Add a new Q&A entry to DB and trigger vector sync.
+- Request JSON: { "question": string, "answer": string, "category": string }
+- Response JSON: { "status": 1|0, "message": string }
+
+GET /fetch-database
+- Description: Fetch all Q&A entries.
+- Response JSON: { "data": [ {id, question, answer, category}, ... ] }
+
+GET /get-interaction-data
+- Description: Fetch interaction timing rows.
+- Response JSON: { "data": [ {id, session_id, duration, date}, ... ] }
+
+POST /login
+- Description: Authenticate admin user.
+- Request JSON: { "email": string, "password": string }
+- Response JSON: { "message": string }
+
+GET/POST /make_admin
+- Description: Admin creation form and submission (uses `MASTER_ADMIN_KEY` server-side validation).
+- Request form: `master_key`, `email`, `password` (handled via Flask-WTF form)
+
+GET /logout
+- Description: Clears session and redirects to home.
+
+POST /session-duration
+- Description: Logs session duration (used by analytics).
+- Request JSON: { "duration": number (seconds), "session_id": string }
+- Response JSON: { "status": "success", "duration": number } on success
+
+POST /delete-unanswered
+- Description: Deletes an unanswered entry by id.
+- Request JSON: { "id": int }
+- Response JSON: { "status": 1|0, "message": string }
+
+Database models / data structures (from `models.py`)
+- QuestionAnswer (table `questions_and_answers`)
+	- Fields: `id: int`, `question: text`, `answer: text`, `category: text`
+
+- InteractionTiming (table `interaction_timer`)
+	- Fields: `id: int`, `session_id: string`, `time_value: int` (seconds), `date: datetime`
+
+- BotSpeedLogs (table `botspeed`)
+	- Fields: `id: int`, `time_value: int`, `date: datetime`, `question: text`, `category: text`
+
+- Unanswered (table `unanswered`)
+	- Fields: `id: int`, `question: text`, `category: text`
+
+- AdminTable (table `admins`)
+	- Fields: `id: int`, `email: string (unique)`, `password: string (hashed)`
+
+Where to set env vars
+- Create a `.env` file in project root (`yctbot_backend/.env`) with key=value lines, for example:
+
+	DATABASE_URL=postgresql+psycopg2://user:pass@host:5432/dbname
+	GEMINI_API_KEY=your_google_gemini_api_key
+	MASTER_ADMIN_KEY=some-strong-secret
+	HUGGINGFACEHUB_API_TOKEN=hf_xxx
+
+Important runtime considerations
+- Use a Postgres DB for production. The code assumes SQLAlchemy + psycopg2 compatibility.
+- `GEMINI_API_KEY` is required at startup (app will raise if missing).
+- `HUGGINGFACEHUB_API_TOKEN` is optional but recommended if you rely on HuggingFace embeddings.
+

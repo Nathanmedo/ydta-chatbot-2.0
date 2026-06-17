@@ -1,5 +1,5 @@
 <!-- templates/home.html -->
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <title>Yabatech FAQ Bot</title>
@@ -7,11 +7,16 @@
       rel="stylesheet"
       href="{{ url_for('static', filename='style.css') }}"
     />
+    <link
+      rel="icon"
+      href="{{ url_for('static', filename='images/favicon.ico') }}"
+      type="image/x-icon"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
       /* General page styles (from original file) */
       .hero-section {
-        background-image: url("http://127.0.0.1:4000/static/images/hero-bg.png");
+        background-image: url("http://127.0.0.1:7860/static/images/hero-bg.jpg");
         background-repeat: no-repeat;
         /* Prevent image tiling */
         background-size: cover;
@@ -145,6 +150,7 @@
 
       .chat-window-input-area {
         display: flex;
+        width: 100%;
         padding: 1rem;
         border-top: 1px solid #e2e8f0;
         background-color: #ffffff;
@@ -164,6 +170,7 @@
       .chat-window-input-area input {
         flex-grow: 1;
         border: 1px solid #ccc;
+        max-width: 85%;
         border-radius: 20px;
         padding: 0.5rem 1rem;
         outline: none;
@@ -232,10 +239,7 @@
     <main class="hero-section">
       <div class="hero-content">
         <h1>Your Smart FAQ Assistant for Yabatech</h1>
-        <p>
-          Get instant answers to your questions about Yabatech. Powered by AI,
-          designed for students.
-        </p>
+        <p>Get quick answers to admissions, exams, courses and campus life.</p>
         <a href="{{ url_for('chatbot') }}" class="main-chat-button"
           >Start Chatting</a
         >
